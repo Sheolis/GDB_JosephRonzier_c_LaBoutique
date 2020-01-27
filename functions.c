@@ -11,3 +11,8 @@ void add_to_shop(item_s *item, shop_s *shop)
   shop->item_list[shop->size] = item;
   shop->size++;
 }
+
+void tri_shop(shop_s *shop)
+{
+
+}

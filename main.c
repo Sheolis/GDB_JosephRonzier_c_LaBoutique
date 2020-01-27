@@ -15,6 +15,6 @@ int main(void)
     item_s shield={1,"Targon",20};
     item_s bow={1,"Bow",30};
     add_to_shop(&sword,&shop); add_to_shop(&shield,&shop); add_to_shop(&bow,&shop);
-    printf("%s\n%s\n%s",shop.item_list[0]->name,shop.item_list[1]->name,shop.item_list[2]->name);
+    printf("%s\n%s\n%s\n%d",shop.item_list[0]->name,shop.item_list[1]->name,shop.item_list[2]->name,shop.size);
     return 0;
 }
