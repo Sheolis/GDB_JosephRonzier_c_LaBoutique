@@ -24,3 +24,12 @@ void tri_shop(shop_s *shop)
         v ++;
     }
 }
+
+void print_shop(shop_s *shop)
+{
+    printf(">>>> %s <<<<\n", shop->name);
+    for (int i=0; i< shop->size; i++)
+    {
+        printf("[%d] %s | price : %d coins | qty: %d\n",i, shop->item_list[i]->name, shop->item_list[i]->price, shop->item_list[i]->quantity);
+    }
+}
