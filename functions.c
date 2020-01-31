@@ -7,6 +7,13 @@ void add_to_shop(item_s *item, shop_s *shop)
   shop->size++;
 }
 
+void add_to_bag(item_s *item, bag_s *bag)
+{
+  bag->item_list = realloc(bag->item_list, (bag->size + 1) * sizeof(item_s *));
+  bag->item_list[bag->size] = item;
+  bag->size++;
+}
+
 void tri_shop(shop_s *shop)
 {
     int v=0;
@@ -25,11 +32,23 @@ void tri_shop(shop_s *shop)
     }
 }
 
-void print_shop(shop_s *shop)
+void print_shop(shop_s *shop, bag_s *bag)
 {
     printf(">>>> %s <<<<\n", shop->name);
     for (int i=0; i< shop->size; i++)
     {
         printf("[%d] %s | price : %d coins | qty: %d\n",i, shop->item_list[i]->name, shop->item_list[i]->price, shop->item_list[i]->quantity);
     }
+    printf("Coins : %d\n",bag->money);
+}
+
+void buy_item(bag_s *bag, shop_s *shop)
+{
+
+    int buy;
+    printf(" Choose an item to buy :\n");
+    scanf("%d",&buy);
+    shop->item_list[buy]->quantity-=1;
+    add_to_bag(shop->item_list[buy], bag);
+
 }
