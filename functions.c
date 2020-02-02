@@ -46,7 +46,7 @@ void print_bag(bag_s *bag)
     printf("-------------------\n");
     for (int i=0; i< bag->size; i++)
     {
-        printf("%s | qty: %d\n",i, bag->item_list[i]->name, bag->item_list[i]->quantity);
+        printf("%s | qty: %d\n", bag->item_list[i]->name, bag->item_list[i]->quantity);
     }
     printf("Coins : %d\n",bag->money);
 }

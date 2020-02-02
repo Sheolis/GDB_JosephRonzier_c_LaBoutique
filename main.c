@@ -4,7 +4,7 @@
 
 int main()
 {
-    char moove;
+    char move[1024];
 
     shop_s shop={"L'bon shop", 0, NULL};
     bag_s bag={100, 0, NULL};
@@ -27,10 +27,11 @@ int main()
         print_shop(&shop);
         print_bag(&bag);
         printf("Leave ? (y,n)\n");
-        scanf("%c",&moove);
-        if (moove=='n'){ buy_item(&bag, &shop); }
+        scanf("%s",move);
+        printf("%d\n", bag.size);
+        if (move[0]=='n'){ buy_item(&bag, &shop); }
 
-    } while (moove=='n') ;
+    } while (move[0]=='n') ;
 
 
     return 0;
