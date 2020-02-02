@@ -13,14 +13,13 @@ typedef struct item item_s;
 typedef struct bag bag_s;
 typedef struct pair pair_s;
 
-void tri_shop(shop_s *shop);
-int index_research(item_s **item_list, int size, char *item_name);
-void print_bag(bag_s *bag);
-void buy(shop_s *shop, bag_s *bag);
-void get_item(item_s *item);
-void add_to_shop(item_s *item, shop_s *shop);
+int index_research(pair_s *pair_list, int size, char *item_name);
+void swap(pair_s *pair_list, int i, int j);
+
+
+void add_to_shop(pair_s pair, shop_s *shop);
 void add_to_bag(item_s *item, bag_s *bag);
-void swap(item_s **item_list, int i, int j);
+void tri_shop(shop_s *shop);
 void print_shop(shop_s *shop);
 void print_bag(bag_s *bag);
 void buy_item(bag_s *bag, shop_s *shop);
@@ -33,7 +32,7 @@ struct shop
 {
     char *name;
     int size;
-    slot_s *item_list;
+    pair_s *pair_list;
 };
 
 struct item
@@ -46,13 +45,13 @@ struct bag
 {
   int money;
   int size;
-  slot_s *item_list;
+  pair_s *pair_list;
 };
 
 struct pair
 {
   unsigned int quantity;
-  item *item;
+  item_s *item;
 };
 
 #endif
