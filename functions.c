@@ -32,12 +32,21 @@ void tri_shop(shop_s *shop)
     }
 }
 
-void print_shop(shop_s *shop, bag_s *bag)
+void print_shop(shop_s *shop)
 {
     printf(">>>> %s <<<<\n", shop->name);
     for (int i=0; i< shop->size; i++)
     {
         printf("[%d] %s | price : %d coins | qty: %d\n",i, shop->item_list[i]->name, shop->item_list[i]->price, shop->item_list[i]->quantity);
+    }
+}
+
+void print_bag(bag_s *bag)
+{
+    printf("-------------------\n");
+    for (int i=0; i< bag->size; i++)
+    {
+        printf("%s | qty: %d\n",i, bag->item_list[i]->name, bag->item_list[i]->quantity);
     }
     printf("Coins : %d\n",bag->money);
 }

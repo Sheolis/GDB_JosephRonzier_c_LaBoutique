@@ -24,7 +24,8 @@ int main()
 
     do
     {
-        print_shop(&shop, &bag);
+        print_shop(&shop);
+        print_bag(&bag);
         printf("Leave ? (y,n)\n");
         scanf("%c",&moove);
         if (moove=='n'){ buy_item(&bag, &shop); }

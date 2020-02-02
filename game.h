@@ -21,7 +21,8 @@ void get_item(item_s *item);
 void add_to_shop(item_s *item, shop_s *shop);
 void add_to_bag(item_s *item, bag_s *bag);
 void swap(item_s **item_list, int i, int j);
-void print_shop(shop_s *shop, bag_s *bag);
+void print_shop(shop_s *shop);
+void print_bag(bag_s *bag);
 void buy_item(bag_s *bag, shop_s *shop);
 
 //enum availability { NOT_AFFORDABLE=0, AFFORDABLE=1};
