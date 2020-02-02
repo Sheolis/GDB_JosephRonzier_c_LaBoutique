@@ -1,10 +1,10 @@
 #include "game.h"
 
-int index_research(item_s **item_list, int size, char *item_name)
+int index_research(pair_s *pair_list, int size, char *item_name)
 {
     for (int i = 0 ; i<size ; i++ )
     {
-        if (item_list[i]->name==item_name)
+        if (pair_list[i].item->name==item_name)
         {
             return i;
         }
@@ -12,9 +12,9 @@ int index_research(item_s **item_list, int size, char *item_name)
     return -1;
 }
 
-void swap(item_s **item_list, int i, int j)
+void swap(pair_s *pair_list, int i, int j)
 {
-  item_s *tmp = item_list[i];
-  item_list[i]=item_list[j];
-  item_list[j]=tmp;
+  pair_s tmp = pair_list[i];
+  pair_list[i]=pair_list[j];
+  pair_list[j]=tmp;
 }
