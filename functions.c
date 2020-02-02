@@ -45,33 +45,38 @@ void print_shop(shop_s *shop)
     printf(">>>> %s <<<<\n", shop->name);
     for (int i=0; i< shop->size; i++)
     {
-        printf("[%d] %s | price : %d coins | qty: %d\n",i, shop->pair_list[i].item->name, shop->pair_list[i].item->price, shop->pair_list[i].quantity);
+        printf("[%d] %s | prix : %d po | stock: %d\n",i, shop->pair_list[i].item->name, shop->pair_list[i].item->price, shop->pair_list[i].quantity);
     }
 }
 
 void print_bag(bag_s *bag)
 {
-    printf("-------------------\n");
+    printf("----------Votre sac---------\n");
     for (int i=0; i< bag->size; i++)
     {
-        printf("%s | qty: %d\n", bag->pair_list[i].item->name, bag->pair_list[i].quantity);
+        printf("%s | stock: %d\n", bag->pair_list[i].item->name, bag->pair_list[i].quantity);
     }
-    printf("Coins : %d\n",bag->money);
+    printf("Pieces d'or(po) : %d\n",bag->money);
+    printf("\n");
 }
 
 void buy_item(bag_s *bag, shop_s *shop)
 {
-
     int buy;
-    printf("Choose an item to buy :\n");
+    printf("Entrer l'index de l'objet que vous souhaitez acheter:\n");
     scanf("%d",&buy);
     if (shop->pair_list[buy].quantity==0)
     {
-        printf("Le marchand n'a plus cet item en magasin.\n");
+        printf("/!\\Le marchand n'a plus cet item en magasin./!\\\n\n");
+        return;
+    }
+    if (shop->pair_list[buy].item->price>bag->money)
+    {
+        printf("/!\\Vous n'avez pas assez d'argent pour acheter cet item/!\\\n\n");
         return;
     }
     shop->pair_list[buy].quantity-=1;
     bag->money -= shop->pair_list[buy].item->price;
     add_to_bag(shop->pair_list[buy].item, bag);
-
+    printf("Vous achetez %s pour %d pieces d'or.\n\n",shop->pair_list[buy].item->name,shop->pair_list[buy].item->price);
 }
