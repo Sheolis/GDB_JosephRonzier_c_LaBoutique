@@ -46,9 +46,10 @@ void buy_item(bag_s *bag, shop_s *shop)
 {
 
     int buy;
-    printf(" Choose an item to buy :\n");
+    printf("Choose an item to buy :\n");
     scanf("%d",&buy);
     shop->item_list[buy]->quantity-=1;
+    bag->money -= shop->item_list[buy]->price;
     add_to_bag(shop->item_list[buy], bag);
 
 }
